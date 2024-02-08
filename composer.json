@@ -1,0 +1,20 @@
+{
+    "name": "bytesgmbh/bytes.php",
+    "description": "A (generic) PHP framework for rapid prototyping and software development",
+    "type": "library",
+    "license": "proprietary",
+    "version": "0.1",
+    "autoload": {
+        "psr-4": {
+            "Bytes\\BytesPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sebastian Räse",
+            "email": "sebastian.raese@hauptstadtbytes.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
