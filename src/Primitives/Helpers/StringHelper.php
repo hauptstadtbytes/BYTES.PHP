@@ -1,7 +1,7 @@
 <?php
 
 //set the namespace
-namespace Bytes\BytesPhp\Primitives\Helpers;
+namespace BytesPhp\Primitives\Helpers;
 
 class StringHelper{
 

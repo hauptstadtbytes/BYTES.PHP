@@ -1,6 +1,6 @@
 <?php
 //set namespace
-namespace Bytes\Tests;
+namespace BytesPhp\Tests;
 
 //setup error displaying
 ini_set('display_errors', 1);
@@ -8,7 +8,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 //import class(es) required
-use Bytes\BytesPhp\Primitives\Helpers\StringHelper as Helper;
+use BytesPhp\Primitives\Helpers\StringHelper as Helper;
 
 require_once(__DIR__.'/../../../vendor/autoload.php');
 

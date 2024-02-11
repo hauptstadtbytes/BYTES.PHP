@@ -1,12 +1,12 @@
 {
     "name": "bytesgmbh/bytes.php",
     "description": "A (generic) PHP framework for rapid prototyping and software development",
-    "type": "library",
+    "type": "project",
     "license": "proprietary",
     "version": "0.1",
     "autoload": {
         "psr-4": {
-            "Bytes\\BytesPhp\\": "src/"
+            "BytesPhp\\": "src/"
         }
     },
     "authors": [
