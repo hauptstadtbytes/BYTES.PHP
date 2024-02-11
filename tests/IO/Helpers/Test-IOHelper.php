@@ -12,17 +12,8 @@ require_once(__DIR__.'/../../../vendor/autoload.php');
 
 use BytesPhp\IO\Helpers\IOHelper as IOHelper;
 
-//check for valid path(s)
-$path = __DIR__."/../../NotExisting";
-echo("Path '".$path."' found: ".IOHelper::FolderExtists($path)."<br />");
-
-$path = __DIR__."/../../Reflection";
-echo("Path '".$path."' found: ".IOHelper::FolderExtists($path)."<br />");
-
-echo("<br /><br />");
-
 //get a list off all files
-$files = IOHelper::Files(array(__DIR__."/../../ReflectionNot"));
+$files = IOHelper::Files(array(__DIR__."/../../Reflection"));
 
 foreach($files as $file){
     echo("File: ". $file."<br />");

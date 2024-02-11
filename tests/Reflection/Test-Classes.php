@@ -3,7 +3,7 @@
 namespace BytesPhp\Tests\Reflection;
 
 //import type(s) required
-require_once("Test-Interfaces.php");
+require_once("Test-Interface.php");
 
 /**
  * @name Sample One

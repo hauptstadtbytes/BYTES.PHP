@@ -5,21 +5,6 @@ namespace BytesPhp\IO\Helpers;
 
 class IOHelper{
 
-    static function FolderExtists($folder) : bool{
-
-        // Get canonicalized absolute pathname
-        $path = realpath($folder);
-
-        // If it exist, check if it's a directory
-        if($path !== false AND is_dir($path))
-        {
-            return true;
-        }
-
-        // Path/folder does not exist
-        return false;
-    }
-
     //method returning a list of all files found inside given search path(s)
     static function Files(array $paths):array {
 
@@ -27,7 +12,7 @@ class IOHelper{
 
         foreach($paths as $path) { //loop for each path found
 
-            if(static::FolderExtists($path)){ //check if the given path points to a (really exising) directory
+            if(is_dir($path)){ //check if the given path points to a (really exising) directory
 
                 //call method recursively for each file and folder inside the directory
                 //based on the article found at 'http://www.php.net/manual/de/function.scandir.php'
