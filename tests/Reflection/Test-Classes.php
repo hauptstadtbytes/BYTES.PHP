@@ -17,15 +17,11 @@ class SampleOne{
  * @name Sample Two
  */
 class SampleTwo{
-
-    //constructor method
-    function __construct(string $searchPath, bool $addDefaults = true) {    
-    }
 }
 
 /**
  * @name Addition
- * @description a simple calculator extension
+ * @description a simple calculator extension for addition
  * @version 1.0.0.0
  */
 class AdditionExtension implements CalculatorExtension{
@@ -37,10 +33,10 @@ class AdditionExtension implements CalculatorExtension{
 
 }
 
+
 /**
  * @name Subtraction
- * @description a simple calculator extension
- * @version 1.0.0.0
+ * @description a simple calculator extension for subtraction
  */
 class SubtractionExtension implements CalculatorExtension{
 
@@ -50,4 +46,7 @@ class SubtractionExtension implements CalculatorExtension{
     }
 
 }
+
+//a class not being an extension
+class NoExtension{}
 ?>
