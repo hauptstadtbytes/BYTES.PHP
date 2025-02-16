@@ -38,7 +38,7 @@ class ClassMetadata extends Dictionary {
         if(!is_null($this->path)){
             require_once($this->path);
         }
-        
+
         //create the reflection class
         $rc = new \ReflectionClass($this->typeName);
     
