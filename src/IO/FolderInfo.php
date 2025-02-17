@@ -5,8 +5,10 @@ namespace BytesPhp\IO;
 //import internal namespace(s) required
 use BytesPhp\IO\FileInfo as FileInfo;
 
+use BytesPhp\Reflection\Extensibility\Extensible as Extensible;
+
 //the 'FolderInfo' class
-class FolderInfo{
+class FolderInfo extends Extensible{
 
     //protected variable(s)
     protected ?string $path = null;
@@ -51,12 +53,54 @@ class FolderInfo{
                     return null;
                 }
                 break;
+            
+            case "created":
+                return filectime($this->path); //see 'https://stackoverflow.com/questions/6815964/php-get-create-time-of-directory' for details
+                break;
+
+            case "modified":
+                return filemtime($this->path);
+                break;
 
             default:
                 return null;
             
         }
         
+    }
+
+    //deletes a file (if existing)
+    public function Remove(bool $recusive = false, string $path = null){
+        
+        if(is_null($path)){
+            $path = $this->path;
+        }
+
+        $info = new FolderInfo($path);
+
+        if($info->exists) {
+
+            if($recusive) { //based on the article found at 'https://www.php.net/manual/en/function.rmdir.php'
+
+                $files = array_diff(scandir($path), array('.','..'));
+
+                foreach ($files as $file) {
+
+                    (is_dir($path.DIRECTORY_SEPARATOR.$file)) ? Remove($path.DIRECTORY_SEPARATOR.$file) : unlink($path.DIRECTORY_SEPARATOR.$file);
+
+                }
+
+                return rmdir($path);
+
+            } else {
+
+                //remove an empty directory
+                return rmdir($path);
+
+            }
+
+        }
+
     }
 
     //returns a list of all subfolders

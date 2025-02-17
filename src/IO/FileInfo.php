@@ -5,8 +5,10 @@ namespace BytesPhp\IO;
 //import internal namespace(s) required
 use BytesPhp\Reflection\ClassInfo as ClassInfo;
 
+use BytesPhp\Reflection\Extensibility\Extensible as Extensible;
+
 //the 'FileInfo' class
-class FileInfo{
+class FileInfo extends Extensible{
 
     //protected variable(s)
     protected ?string $path = null;
@@ -42,11 +44,27 @@ class FileInfo{
                 return pathinfo($this->path, PATHINFO_EXTENSION);
                 break;
 
+            case "created":
+                return filectime($this->path);
+                break;
+            
+            case "modified":
+                return filemtime($this->path); //see 'https://www.winkelb.com/php-filemtime' for reference
+                break;
+
             default:
                 return null;
             
         }
         
+    }
+
+    //deletes a file (if existing)
+    public function Remove(){
+        
+        if($this->exists){
+            unlink($this->path);
+        }
     }
 
     //returns a list of all classes found
