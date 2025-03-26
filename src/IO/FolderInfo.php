@@ -25,6 +25,69 @@ class FolderInfo extends Extensible{
 
     }
 
+    //lists all folder paths inside the given folder
+    public static function ListFolders(string $path, bool $recursive = true) : array {
+
+        //create a new output value
+        $output = [];
+
+        if(is_dir($path)) {
+
+            //create a new info instance
+            $folder = new FolderInfo($path); 
+
+            //add all subfolders
+            $subFolders = $folder->folders;
+
+            if(count($subFolders) > 0) {
+
+                foreach($subFolders as $folderInfo){
+
+                    $output[] = $folderInfo->path; 
+
+                    if($recursive) {
+                        foreach(FolderInfo::ListFolders($folderInfo->path) as $path) {
+                            $output[] = $path;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        //return the output value
+        return $output;
+
+    }
+
+    public static function ListFiles(string $path, bool $recusive) {
+
+        //create a new output value
+        $output = [];
+
+        if(is_dir($path)) {
+
+            //get all folders
+            $folderPaths = FolderInfo::ListFolders($path,$recusive); 
+
+            foreach($folderPaths as $folderPath) {
+
+                $folder = new FolderInfo($folderPath);
+
+                foreach($folder->files as $file){
+                    $output[] = $file->path;
+                }
+
+            }
+
+        }
+
+        //return the output value
+        return $output;
+
+    }
+
     //(public) getter (magic) method, for read-only properties
     public function __get(string $property) {
             
