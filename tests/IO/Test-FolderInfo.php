@@ -106,4 +106,21 @@ if(!is_null($parentFolderInfo)) {
     $parentFolderInfo->EchoSubfolders($parentFolderInfo);
 
 }
+
+//list all subfolders found
+
+//foreach(FolderInfo::ListFolders(__DIR__."/../../") as $path) {
+foreach(FolderInfo::ListFolders(__DIR__."/../../", true) as $path) {
+    echo("Subfolder: ".$path."<br />");
+
+}
+
+echo("<br />");
+
+//list all files (in all subfolders) found
+//foreach(FolderInfo::ListFiles(__DIR__."/../../") as $path) {
+foreach(FolderInfo::ListFiles(__DIR__."/../../", true) as $path) {
+    echo("File: ".$path."<br />");
+
+}
 ?>
