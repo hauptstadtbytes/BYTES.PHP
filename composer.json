@@ -3,11 +3,14 @@
     "description": "A (generic) PHP framework for rapid prototyping and software development",
     "type": "project",
     "license": "proprietary",
-    "version": "0.2",
+    "version": "0.2.1",
     "autoload": {
         "psr-4": {
             "BytesPhp\\": "src/"
-        }
+        },
+        "files": [
+            "src/Primitives/String.php"
+        ]
     },
     "authors": [
         {

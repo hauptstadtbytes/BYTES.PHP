@@ -61,7 +61,7 @@ class FolderInfo extends Extensible{
 
     }
 
-    public static function ListFiles(string $path, bool $recusive) {
+    public static function ListFiles(string $path, bool $recusive = true) {
 
         //create a new output value
         $output = [];
