@@ -28,6 +28,10 @@ class FileInfo extends Extensible{
                 return $this->path;
                 break;
 
+            case "name":
+                return pathinfo($this->path,PATHINFO_BASENAME);
+                break;
+
             case "exists":
                 return file_exists($this->path);
                 break;
@@ -50,6 +54,10 @@ class FileInfo extends Extensible{
             
             case "modified":
                 return filemtime($this->path); //see 'https://www.winkelb.com/php-filemtime' for reference
+                break;
+
+            case "size":
+                return filesize($this->path);
                 break;
 
             default:

@@ -97,6 +97,10 @@ class FolderInfo extends Extensible{
                 return $this->path;
                 break;
 
+            case "name":
+                return basename($this->path);
+                break;
+
             case "exists":
                 return is_dir($this->path);
                 break;
@@ -130,6 +134,40 @@ class FolderInfo extends Extensible{
             
         }
         
+    }
+
+    //public function creating the directory (recusively), if not existing
+    public function Create() {
+
+        $path = $this->path;
+        
+        if(!is_dir($path)) {
+
+            $permission = null;
+
+            while(is_null($permission)) {
+
+                if(strrpos($path,DIRECTORY_SEPARATOR) == false) {
+                    break;
+                } else {
+
+                    $path = substr($path,0,strrpos($path,DIRECTORY_SEPARATOR));
+
+                    if(is_dir($path)) {
+                        $permission = fileperms($path);
+                    }
+                }
+
+
+            }
+
+            if(!is_null($permission)){
+
+                mkdir($this->path,$permission,true);
+            }
+
+        }
+
     }
 
     //deletes a file (if existing)

@@ -77,7 +77,7 @@ echo("<br /><br />");
 
 //list all files
 foreach($folderInfo->files as $fileInfo){
-    echo("File with extension ".$fileInfo->extension."(created at ".$fileInfo->CreationDate().", modified at ".$fileInfo->ModificationDate().") found at ". $fileInfo->path." in folder ".$fileInfo->parent->path."<br />");
+    echo("File with extension ".$fileInfo->extension."(created at ".$fileInfo->CreationDate().", modified at ".$fileInfo->ModificationDate().", size ".$fileInfo->size." bytes) found at ". $fileInfo->path." in folder ".$fileInfo->parent->path."<br />");
 }
 echo("<br />");
 
@@ -123,4 +123,8 @@ foreach(FolderInfo::ListFiles(__DIR__."/../../", true) as $path) {
     echo("File: ".$path."<br />");
 
 }
+
+//test remote files
+$remoteFile = new FileInfo("https://backup.mitpflegeleben.de/wp-content/uploads/2021/03/2021-03-23-premium-bonus-angebot-a4.pdf");
+echo("Remote File: ".$remoteFile->CreationDate());
 ?>
