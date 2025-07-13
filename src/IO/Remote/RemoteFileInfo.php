@@ -38,6 +38,10 @@ class RemoteFileInfo extends Extensible{
                 return $this->CheckFileExists();
                 break;
 
+            case "extension":
+                return pathinfo($this->path, PATHINFO_EXTENSION);
+                break;
+
             default:
                 return null;
             

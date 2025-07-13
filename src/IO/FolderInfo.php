@@ -187,7 +187,7 @@ class FolderInfo extends Extensible{
 
                 foreach ($files as $file) {
 
-                    (is_dir($path.DIRECTORY_SEPARATOR.$file)) ? Remove($path.DIRECTORY_SEPARATOR.$file) : unlink($path.DIRECTORY_SEPARATOR.$file);
+                    (is_dir($path.DIRECTORY_SEPARATOR.$file)) ? \Remove($path.DIRECTORY_SEPARATOR.$file) : \unlink($path.DIRECTORY_SEPARATOR.$file);
 
                 }
 
