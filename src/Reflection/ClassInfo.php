@@ -66,7 +66,13 @@ class ClassInfo{
 
     //returns a class instance
     private function GetInstance() {
+
+        //check for an abstract class
+        if($this->metadata->isabstract) {
+                return null;
+        }
         
+        //create a new class instance
         require_once($this->file->path);
     
         return new $this->name();
@@ -76,6 +82,12 @@ class ClassInfo{
     //returns the list of implemented interfaces
     private function GetImplementedInterfaces(){
 
+        //check for an abstract class
+        if($this->metadata->isabstract) {
+                return [];
+        }
+
+        //analyze the class
         $interfaces = class_implements($this->instance);
 
         if(!$interfaces){

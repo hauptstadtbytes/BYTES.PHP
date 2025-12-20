@@ -41,6 +41,8 @@ class ClassMetadata extends Dictionary {
 
         //create the reflection class
         $rc = new \ReflectionClass($this->typeName);
+
+        $this->pairs["isabstract"] = $rc->isAbstract();
     
         //get all string matches using RegEX
         preg_match_all("/@(\w+)\b(.*)/",$rc->getDocComment(), $annotations);
