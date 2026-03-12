@@ -22,5 +22,10 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "scripts": {
+        "post-update-cmd": [
+            "rm -rf vendor/bytesgmbh/bytes.php/tests"
+        ]
+    }
 }
