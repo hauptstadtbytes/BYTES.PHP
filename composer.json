@@ -3,10 +3,7 @@
     "description": "A (generic) PHP framework for rapid prototyping and software development",
     "type": "project",
     "license": "proprietary",
-    "version": "0.3-beta.4",
-    "archive": {
-        "exclude": ["tests"]
-    },
+    "version": "0.3-beta.5",
     "autoload": {
         "psr-4": {
             "BytesPhp\\": "src/"
@@ -22,10 +19,5 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
-    "scripts": {
-        "post-update-cmd": [
-            "rm -rf vendor/bytesgmbh/bytes.php/tests"
-        ]
-    }
+    "require": {}
 }
