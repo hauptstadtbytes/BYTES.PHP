@@ -4,6 +4,9 @@
     "type": "project",
     "license": "proprietary",
     "version": "0.3-beta.4",
+    "archive": {
+        "exclude": ["tests"]
+    },
     "autoload": {
         "psr-4": {
             "BytesPhp\\": "src/"

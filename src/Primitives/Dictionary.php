@@ -3,7 +3,7 @@
 //set the namespace
 namespace BytesPhp\Primitives;
 
-//the metadata class
+//the dictionary class
 class Dictionary{
 
     //protected variable(s)
